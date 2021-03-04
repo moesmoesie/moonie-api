@@ -3,3 +3,4 @@ venv
 __pycache__
 data/income-statements
 .DS_Store
+data/stock-prices
