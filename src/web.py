@@ -1,5 +1,6 @@
 import requests
 import json
+import csv
 
 def get_page_content(url):
     response = make_request(url)
@@ -7,7 +8,7 @@ def get_page_content(url):
     if response.status_code != 200:
         return None
     
-    return None
+    return response.content
 
 def get_page_json(url):
     response = make_request(url)
@@ -29,6 +30,19 @@ def download_page_json(url,path):
             data = response.json()
             json.dump(data, outfile,indent=4)
         return response.json()
+    except:
+        return None
+
+def download_page_csv(url,path):
+    response = make_request(url)
+    if response.status_code != 200:
+        return None
+
+    try:
+        with open(path, 'w') as outfile:
+            decoded_content = response.content.decode('utf-8')
+            outfile.write(decoded_content)
+        return True
     except:
         return None
 
