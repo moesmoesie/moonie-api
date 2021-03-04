@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
 
 def create_stock_price_link(company_symbol):
-    ''' Returns link for extracting data of company income statements on Yahoo Finance'''
+    ''' Returns link for extracting data of company stock data on Yahoo Finance'''
 
     currentTimeStamp = str(time()).split(".")[0]    
     full_url = f"https://query1.finance.yahoo.com/v7/finance/download/{company_symbol}?period1=860371200&period2={currentTimeStamp}&interval=1d&events=history&includeAdjustedClose=true"
